@@ -1,11 +1,12 @@
-body{
+body {
     font-family: Arial;
     margin: 0;
     padding: 0;
     display: block;
     text-align: center;
 }
-#MiTablero{
+
+#MiTablero {
     margin: 0;
     padding: 100px;
     background-color: grey;
@@ -13,7 +14,8 @@ body{
     display: inline-block;
     vertical-align: top;
 }
-#TableroRival{
+
+#TableroRival {
     margin: 0;
     padding: 100px;
     background-color: pink;
@@ -21,7 +23,9 @@ body{
     display: inline-block;
     vertical-align: top;
 }
-#MiTablero, #TableroRival{
+
+#MiTablero,
+#TableroRival {
     width: 37%;
 }
 
@@ -33,5 +37,10 @@ body{
     cursor: pointer;
     vertical-align: top;
     padding-top: 50px;
-    background-color: white; 
+    background-color: white;
+}
+
+.hit {
+    background-color: blue;
+    pointer-events: none;
 }
