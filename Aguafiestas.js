@@ -7,22 +7,34 @@ const myTablero = [
 	[0, 0, 0, 0, 0]
 ]
 const rivalHits = []
+const myShips = {
+	1: 3,
+	2: 2,
+	3: 2
+}
 
 const tableroRival = [
 	[1, 1, 1, 0, 0],
 	[0, 0, 0, 2, 2],
 	[0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 1],
-	[0, 0, 0, 0, 1]
+	[0, 0, 0, 0, 3],
+	[0, 0, 0, 0, 3]
 ]
 const myHits = []
-
+const rivalShips = {
+	1: 3,
+	2: 2,
+	3: 2
+}
 
 function iAmHit(event) {
 	const shipId = event.target.getAttribute("data-ship-id")
 	console.log("You clicked  " + shipId)
 	if (shipId > 0) {
-		rivalHits.push(shipId)
+		myHits.push(shipId)
+		event.target.classList.add("hit", "ship")
+	} else {
+		event.target.classList.add("hit", "water")
 	}
 	console.log("rivalHits: ", rivalHits)
 }
@@ -32,8 +44,10 @@ function rivalIsHit(event) {
 	console.log("You clicked  " + shipId)
 	if (shipId > 0) {
 		myHits.push(shipId)
+		event.target.classList.add("hit", "ship")
+	} else {
+		event.target.classList.add("hit", "water")
 	}
-	event.target.classList.add("hit")
 	console.log("myHits: ", myHits)
 }
 
@@ -83,4 +97,37 @@ function Cargado() {
 
 }
 
-window.addEventListener("load", Cargado)
+// Count the number of repetitions of each number.
+function countMyHits(myHits, rivalShips) {
+	const hitShips = myHits.reduce((hitShips, hit) => {
+		if (hitShips[hit]) {
+			hitShips[hit]++;
+		} else {
+			hitShips[hit] = 1;
+		}
+	}, {})
+
+	for (let ship in hitShips) {
+		if (hitShip[ship] >= rivalShips[ship]) {
+			console.log(`You sunk ship number: ${ship}`)
+		}
+	}
+}
+
+	function countRivalHits(rivalHits, myShips) {
+		const hitShips = rivalHits.reduce((hitShips, hit) => {
+			if (hitShips[hit]) {
+				hitShips[hit]++;
+			} else {
+				hitShips[hit] = 1;
+			}
+		}, {})
+
+		for (let ship in hitShips) {
+			if (hitShip[ship] >= myShips[ship]) {
+				console.log(`You sunk ship number: ${ship}`)
+			}
+		}
+	}
+
+	 window.addEventListener("load", Cargado)

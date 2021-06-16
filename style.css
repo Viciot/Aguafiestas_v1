@@ -41,6 +41,13 @@ body {
 }
 
 .hit {
-    background-color: blue;
     pointer-events: none;
+}
+
+.water {
+    background-color: blue;
+}
+
+.ship {
+    background-color: red
 }
