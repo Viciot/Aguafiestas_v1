@@ -1,5 +1,5 @@
 body {
-    font-family: Arial;
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
     display: block;
@@ -27,6 +27,8 @@ body {
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: repeat(5, 1fr);
 	grid-auto-rows: minmax(100px, auto);       
+       
+    
 }
 
 .celda {
@@ -44,36 +46,62 @@ body {
 }
 
 .water {
-    background-color: blue;
+    background-image: url(images/waterexplosion.jpg) ;
 }
 
 .ship {
+    background-image: url(images/explosion.jpg) ;
+    /* 
     background-color: red
+    */
+
 }
 
 .div{
-
+    
 }
 
 .start {
+    font-family: 'Courier New', Courier, monospace;
     background-color: tomato;
   color: white;
   border: 2px solid black;
   margin: 20px;
   padding: 20px;
   cursor: pointer;
+  font-weight: bold;    
 
 }
 
 .reset {
+    font-family: 'Courier New', Courier, monospace;
     background-color: tomato;
   color: white;
   border: 2px solid black;
   margin: 20px;
   padding: 20px;
-  cursor: pointer;
+  cursor: pointer;   
+  font-weight: bold;  
+ 
 }
 
 #tableros {
-display: flex
+display: flex;
+    
+}
+
+.rules {
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    background-color: lightslategray;
+}
+
+H2{
+    font-weight: 700;
+    text-decoration: underline;
 }
