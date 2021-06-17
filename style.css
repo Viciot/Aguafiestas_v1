@@ -1,4 +1,4 @@
-body {
+cody {
     font-family: Arial;
     margin: 0;
     padding: 0;
@@ -6,22 +6,17 @@ body {
     text-align: center;
 }
 
-#MiTablero {
-
+#myTablero {
     background-color: grey;
-   
-    
+    pointer-events: none;    
 }
 
-#TableroRival {
-        
+#tableroRival {
     background-color: lightblue;
-    
-    
 }
 
-#MiTablero,
-#TableroRival {
+#myTablero,
+#tableroRival {
     width: 400px;
     height: 400px;
     vertical-align: top;
@@ -32,7 +27,7 @@ body {
 	grid-auto-rows: minmax(100px, auto);
 }
 
-.Celda {
+.celda {
     width: 25px;
     height: 25px;
     border: 2px solid black;
