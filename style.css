@@ -4,7 +4,7 @@ body {
     padding: 0;
     display: block;
     text-align: center;
-    background-image: url("imagenes/fondo1.png");
+    background-image: url(images/fondo1.png)
     
 }
 
@@ -61,7 +61,8 @@ body {
   border: 2px solid black;
   margin: 20px;
   padding: 20px;
-  
+  cursor: pointer;
+
 }
 
 .reset {
@@ -70,4 +71,9 @@ body {
   border: 2px solid black;
   margin: 20px;
   padding: 20px;
+  cursor: pointer;
+}
+
+#tableros {
+display: flex
 }

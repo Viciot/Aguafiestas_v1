@@ -103,18 +103,19 @@ function countMyHits() {
 
 /* Una vez creamos todo el codigo hacemos esto */
 function Cargado() {
-
+document.querySelector(".start").disabled = true;
+const tableros = document.getElementById("tableros");
 	/* Creo tablero de  ariba */
 	const contenedorTableroRival = document.createElement('div');
 	contenedorTableroRival.id = 'tableroRival';
 	contenedorTableroRival.addEventListener("click", rivalIsHit)
-	document.body.appendChild(contenedorTableroRival);
+	tableros.appendChild(contenedorTableroRival);
 
 	/* Creo tablero de abajo */
 	const contenedormyTablero = document.createElement('div');
 	contenedormyTablero.id = 'myTablero';
 	contenedormyTablero.addEventListener("click", iAmHit)
-	document.body.appendChild(contenedormyTablero);
+	tableros.appendChild(contenedormyTablero);
 
 
 	/* Human player shoot/paint to cells in tableroRival */
