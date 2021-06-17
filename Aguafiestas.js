@@ -27,16 +27,18 @@ const rivalShips = {
 	3: 2
 }
 
+let turnCounter = 1
 function iAmHit(event) {
 	const shipId = event.target.getAttribute("data-ship-id")
 	console.log("You clicked  " + shipId)
 	if (shipId > 0) {
-		myHits.push(shipId)
+		rivalHits.push(shipId)
 		event.target.classList.add("hit", "ship")
 	} else {
 		event.target.classList.add("hit", "water")
 	}
 	console.log("rivalHits: ", rivalHits)
+	countRivalHits();
 }
 
 function rivalIsHit(event) {
@@ -49,7 +51,44 @@ function rivalIsHit(event) {
 		event.target.classList.add("hit", "water")
 	}
 	console.log("myHits: ", myHits)
+	countMyHits();
 }
+
+
+// Count the number of repetitions of each number.
+function countMyHits() {
+	const myHitShips = {}
+	myHits.forEach(hit => {
+		if (myHitShips[hit]) {
+			myHitShips[hit]++;
+		} else {
+			myHitShips[hit] = 1;
+		}
+	})
+
+	for (let ship in myHitShips) {
+		if (myHitShips[ship] >= rivalShips[ship]) {
+			console.log(`You sunk ship number: ${ship}`)
+		}
+	}
+}
+
+	function countRivalHits() {
+		const rivalHitShips = {}
+		rivalHits.forEach(hit => {
+			if (rivalHitShips[hit]) {
+				rivalHitShips[hit]++;
+			} else {
+				rivalHitShips[hit] = 1;
+			}
+		})
+
+		for (let ship in rivalHitShips) {
+			if (rivalHitShips[ship] >= myShips[ship]) {
+				console.log(`You sunk ship number: ${ship}`)
+			}
+		}
+	}
 
 /* Una vez creamos todo el codigo hacemos esto */
 function Cargado() {
@@ -74,10 +113,10 @@ function Cargado() {
 			let Celda = document.createElement('div');
 			Celda.className = 'Celda';
 			Celda.setAttribute("data-ship-id", myTablero[fila][columna])
+			ContenedorMiTablero.append(Celda);
 
 			let p = document.createElement('p')
-			Celda.append(myTablero[fila][columna] ? "o" : "x", p);
-			ContenedorMiTablero.append(Celda);
+			Celda.append(myTablero[fila][columna] ? "o" : "x", p);			
 		}
 	}
 
@@ -87,47 +126,25 @@ function Cargado() {
 
 			let Celda = document.createElement('div');
 			Celda.className = 'Celda';
-			Celda.setAttribute("data-ship-id", myTablero[fila][columna])
+			Celda.setAttribute("data-ship-id", tableroRival[fila][columna])
 			ContenedorTableroRival.append(Celda);
 
 			let p = document.createElement('p')
 			Celda.append(tableroRival[fila][columna] ? "o" : "x", p);
 		}
 	}
+startGame()
 
 }
 
-// Count the number of repetitions of each number.
-function countMyHits(myHits, rivalShips) {
-	const hitShips = myHits.reduce((hitShips, hit) => {
-		if (hitShips[hit]) {
-			hitShips[hit]++;
-		} else {
-			hitShips[hit] = 1;
-		}
-	}, {})
 
-	for (let ship in hitShips) {
-		if (hitShip[ship] >= rivalShips[ship]) {
-			console.log(`You sunk ship number: ${ship}`)
-		}
-	}
+function startGame() {
+if (turnCounter % 2 === 0){	
+	const freeCells = document.querySelectorAll("#myTablero.Celda").filter( element => !element.classList.contains("hit"))
+	const randomIndex = Math.floor(Math.random() * freeCells.length)
+	freeCells[randomIndex].click
+}
 }
 
-	function countRivalHits(rivalHits, myShips) {
-		const hitShips = rivalHits.reduce((hitShips, hit) => {
-			if (hitShips[hit]) {
-				hitShips[hit]++;
-			} else {
-				hitShips[hit] = 1;
-			}
-		}, {})
-
-		for (let ship in hitShips) {
-			if (hitShip[ship] >= myShips[ship]) {
-				console.log(`You sunk ship number: ${ship}`)
-			}
-		}
-	}
 
 	 window.addEventListener("load", Cargado)

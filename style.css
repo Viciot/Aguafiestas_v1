@@ -7,36 +7,38 @@ body {
 }
 
 #MiTablero {
-    margin: 0;
-    padding: 100px;
+
     background-color: grey;
-    height: 800px;
-    display: inline-block;
-    vertical-align: top;
+   
+    
 }
 
 #TableroRival {
-    margin: 0;
-    padding: 100px;
-    background-color: pink;
-    height: 800px;
-    display: inline-block;
-    vertical-align: top;
+        
+    background-color: lightblue;
+    
+    
 }
 
 #MiTablero,
 #TableroRival {
-    width: 37%;
+    width: 400px;
+    height: 400px;
+    vertical-align: top;
+    padding: 25px;
+    display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+	grid-auto-rows: minmax(100px, auto);
 }
 
 .Celda {
-    width: 100px;
-    height: 50px;
-    display: inline-block;
+    width: 25px;
+    height: 25px;
     border: 2px solid black;
     cursor: pointer;
     vertical-align: top;
-    padding-top: 50px;
+    padding: 25px;
     background-color: white;
 }
 
@@ -50,4 +52,8 @@ body {
 
 .ship {
     background-color: red
+}
+
+.div{
+
 }
