@@ -125,7 +125,7 @@ function Cargado() {
 			celda.setAttribute("data-ship-id", myTablero[fila][columna])
 			contenedormyTablero.append(celda);
 			let p = document.createElement('p')
-			//celda.append(myTablero[fila][columna] ? "o" : "x", p);			
+			celda.append(myTablero[fila][columna] ? "o" : "x", p);			
 		}
 	}
 
@@ -137,7 +137,7 @@ function Cargado() {
 			celda.setAttribute("data-ship-id", tableroRival[fila][columna])
 			contenedorTableroRival.append(celda);
 			let p = document.createElement('p')
-			celda.append(tableroRival[fila][columna] ? "o" : "x", p);
+			//celda.append(tableroRival[fila][columna] ? "o" : "x", p);
 		}
 	}
 	setTimeout(machinePlay, 1000) // Put this under a start button!
@@ -156,4 +156,5 @@ turnCounter++
 }
 
 
-	 window.addEventListener("load", Cargado)
+
+	// window.addEventListener("load", Cargado)
